@@ -5,15 +5,15 @@
 </template>
 
 <script>
-// import {mapState,mapMutations,mapActions} from 'vuex';
+import {mapState,mapMutations,mapActions} from 'vuex';
 // import {hotcity} from './server/getData.js'
 export default {
-  // name: 'App',
-  // computed: {
-  //   ...mapState([
-  //     'count'
-  //   ]),
-  // },
+  name: 'App',
+  computed: {
+    ...mapState([
+      'count'
+    ]),
+  },
   // methods: {
   //   ...mapMutations([
   //     'CHANGECOUNT'
@@ -30,7 +30,10 @@ export default {
   //       console.log(res);
   //     })
   //   }
-  // }
+  // }，
+  mounted() {
+    console.log(this.count);
+  },
 }
 </script>
 
