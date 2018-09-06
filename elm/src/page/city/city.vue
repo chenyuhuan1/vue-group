@@ -14,15 +14,14 @@
     </ul>
     <p class="clearAll" v-if="SearchList.length>0 && isHisList" @click="clearAll()">清除所有记录</p>
     <p class="noData" v-if="noData" >暂无搜索结果！</p>
-    <alerts :msg="'alertMsg'"></alerts>
   </div>
 </template>
 
 <script>
   import heads from '../../components/heads/heads.vue'
   import {fetch} from '../../config/fetch.js';
-  import {setSession,getSession,removeSession} from '../../config/mconfig.js'
-  import alerts from '../../components/alerts/alerts.vue'
+  import {setSession,getSession,removeSession} from '../../config/mconfig.js';
+  import {mapMutations} from 'vuex';
   export default {
     data() {
       return {
@@ -36,9 +35,12 @@
       }
     },
     methods: {
+      ...mapMutations([
+        'CHANGECLERTMSG'
+      ]),
       submits() {
         if (this.inputValue == ''){
-          alert("请输入搜索条件！");
+          this.CHANGECLERTMSG("请输入搜索条件！");
           return ;
         }
         fetch('/v1/pois',{type: 'search',city_id: this.cityId,keyword: this.inputValue}).then((res) => {
@@ -84,7 +86,6 @@
     },
     components: {
       heads,
-      alerts,
     }
   }
 </script>

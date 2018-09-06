@@ -1,6 +1,6 @@
 <template>
   <div class="msite">
-
+    <heads :isback="true"></heads>
   </div>
 </template>
 

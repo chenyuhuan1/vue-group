@@ -7,6 +7,7 @@ vue.use(vuex);
 
 const state = {
   count: 123,
+  alertMsg: '',
 };
 
 export default new vuex.Store ({

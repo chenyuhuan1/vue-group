@@ -1,18 +1,18 @@
 <template>
   <div id="app">
     <router-view/>
+      <alerts></alerts>
   </div>
 </template>
 
 <script>
 import {mapState,mapMutations,mapActions} from 'vuex';
+import alerts from '@/components/alerts/alerts.vue'
 // import {hotcity} from './server/getData.js'
 export default {
   name: 'App',
   computed: {
-    ...mapState([
-      'count'
-    ]),
+    
   },
   // methods: {
   //   ...mapMutations([
@@ -32,11 +32,13 @@ export default {
   //   }
   // }，
   mounted() {
-    console.log(this.count);
+
   },
+  components: {
+    alerts,
+  }
 }
 </script>
 
 <style lang="less">
-  
 </style>
